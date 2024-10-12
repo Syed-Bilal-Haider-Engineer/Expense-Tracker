@@ -7,6 +7,7 @@ An expense tracker app built with Vue 3 and the composition API.
 - Save data to local storage
 - Vue-toastification for notifications
 - `<script setup>` syntax (Vue 3.2+)
+- Test with the cypress of the application.
 
 <img src="public/screen.png" width="400" />
 

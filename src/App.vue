@@ -3,24 +3,37 @@
   <div class="container">
     <Balance :total="total" />
     <IncomeExpenses :income="+income" :expenses="+expenses" />
-    <TransactionList
+  <CAccordion flush class="accordian">
+  <CAccordionItem data-test="accordian-item-one">
+    <CAccordionHeader>
+      History
+    </CAccordionHeader>
+    <CAccordionBody>
+      <TransactionList
       :transactions="transactions"
       @transactionDeleted="handleTransactionDeleted"
-    />
-    <AddTransaction @transactionSubmitted="handleTransactionSubmitted" />
-  </div>
+    /></CAccordionBody>
+  </CAccordionItem>
+  <CAccordionItem data-test="accordian-item-two">
+      <CAccordionHeader>
+      Add Transaction
+    </CAccordionHeader>
+    <CAccordionBody>
+      <AddTransaction @transactionSubmitted="handleTransactionSubmitted" />
+    </CAccordionBody>
+  </CAccordionItem>
+</CAccordion>
+</div>
 </template>
-
 <script setup>
 import Header from './components/Header.vue';
 import Balance from './components/Balance.vue';
 import IncomeExpenses from './components/IncomeExpenses.vue';
 import TransactionList from './components/TransactionList.vue';
 import AddTransaction from './components/AddTransaction.vue';
-
 import { ref, computed, onMounted } from 'vue';
-
 import { useToast } from 'vue-toastification';
+import { CAccordion, CAccordionBody, CAccordionHeader, CAccordionItem } from '@coreui/vue';
 
 const toast = useToast();
 

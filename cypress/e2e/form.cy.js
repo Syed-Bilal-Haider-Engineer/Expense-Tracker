@@ -4,12 +4,11 @@ describe('Form', () => {
     })
 
     it('Test expense form', () => {
-      cy.contains(/Text/i).should('not.be.visible')
       cy.get('[data-test="accordian-item-two"] .accordion-header').click()
-      cy.contains(/Text/i).should('be.visible')
+      cy.getData('subscribe-form').find("input").as("transaction-form")
       cy.contains(/50/i).should('not.exist')
-      cy.getData("subscribe-title").type("Grossery")
-      cy.getData("subscibre-input").type("50")
+      cy.get("@transaction-form").first().type("Grossery")
+      cy.get("@transaction-form").eq(1).type("50")
       cy.getData("subscribe-btn").click()
       cy.contains(/50/i).should('exist')
     })

@@ -1,6 +1,6 @@
 <template>
   {{ amount }}
-  <form id="form" class="form-new" @submit.prevent="onSubmit">
+  <form id="form" class="form-new" data-test="subscribe-form"  @submit.prevent="onSubmit">
     <div class="form-control">
       <label for="text">Text</label>
       <input type="text" id="text" data-test="subscribe-title" placeholder="Enter text..." v-model="text" />

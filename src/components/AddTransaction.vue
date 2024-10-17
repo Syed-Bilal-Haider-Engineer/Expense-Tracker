@@ -1,8 +1,9 @@
 <template>
-  <form id="form" @submit.prevent="onSubmit">
+  {{ amount }}
+  <form id="form" class="form-new" @submit.prevent="onSubmit">
     <div class="form-control">
       <label for="text">Text</label>
-      <input type="text" id="text" placeholder="Enter text..." v-model="text" />
+      <input type="text" id="text" data-test="subscribe-title" placeholder="Enter text..." v-model="text" />
     </div>
     <div class="form-control">
       <label for="amount"
@@ -14,9 +15,10 @@
         id="amount"
         placeholder="Enter amount..."
         v-model="amount"
+        data-test="subscibre-input"
       />
     </div>
-    <button class="btn">Add transaction</button>
+    <button class="btn" data-test="subscribe-btn">Add transaction</button>
   </form>
 </template>
 

@@ -9,8 +9,17 @@ describe('Form', () => {
       cy.contains(/50/i).should('not.exist')
       cy.get("@transaction-form").first().type("Grossery")
       cy.get("@transaction-form").eq(1).type("50")
+      
       cy.getData("subscribe-btn").click()
       cy.contains(/50/i).should('exist')
     })
+
+    it.only('Intercept',() => {
+      cy.get('[data-test="accordian-item-two"] .accordion-header').click()
+        cy.intercept("GET", 'https://fakestoreapi.com/products?limit=5', (req) => {
+          return req.json();
+        })
+        cy.getData("subscribe-btn").click()
+      })
   })
   

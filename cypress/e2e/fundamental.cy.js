@@ -18,6 +18,5 @@ describe('template spec', () => {
 
     cy.wait(500); 
     cy.contains(/Text/i).should('not.be.visible')
-
   })
 })

@@ -1,5 +1,5 @@
 <template>
-  <ul id="list" class="list">
+  <ul id="list" class="list" data-test="Grudge-list">
     <li
       v-for="transaction in transactions"
       :key="transaction.id"
